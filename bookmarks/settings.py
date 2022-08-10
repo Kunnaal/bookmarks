@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     # Applications
     'account.apps.AccountConfig',
+    'images.apps.ImagesConfig',
 
     # Django auth
     'django.contrib.admin',
