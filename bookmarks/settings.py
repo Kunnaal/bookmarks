@@ -50,6 +50,9 @@ INSTALLED_APPS = [
     # Third party authentication
     'social_django',
     'django_extensions',
+
+    # Application to create thumbnails
+    'easy_thumbnails',
 ]
 
 # Handle custom authentication
