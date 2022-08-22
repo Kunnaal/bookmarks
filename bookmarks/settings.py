@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 import os
 from pathlib import Path
+from django.urls import reverse_lazy
 from dotenv import load_dotenv, find_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     # Applications
     'account.apps.AccountConfig',
     'images.apps.ImagesConfig',
+    'actions.apps.ActionsConfig',
 
     # Django auth
     'django.contrib.admin',
@@ -167,3 +169,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 # Google OAuth
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get('GOOGLE_AUTH_CLIENT_KEY')
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get('GOOGLE_AUTH_CLIENT_SECRET')
+
+# Another way to set up get_absolute_url
+ABSOLUTE_URL_OVERRIDES = {
+    'auth.user': lambda u: reverse_lazy('user_detail', args=[u.username])
+}
